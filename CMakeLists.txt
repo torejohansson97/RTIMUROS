@@ -103,7 +103,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES BerryIMU
+#  LIBRARIES RTIMU
 #  CATKIN_DEPENDS roscpp std_msgs
 #  DEPENDS system_lib
 )
@@ -117,16 +117,16 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS},
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/RTIMULib2/RTIMULib
+  ${CMAKE_CURRENT_SOURCE_DIR}/../RTIMULib2/RTIMULib
 )
 
 
 
-ADD_SUBDIRECTORY(${CMAKE_CURRENT_SOURCE_DIR}/src/RTIMULib2/RTIMULib RTIMULib)
+ADD_SUBDIRECTORY(${CMAKE_CURRENT_SOURCE_DIR}/../RTIMULib2/RTIMULib RTIMULib)
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/BerryIMU.cpp
+#   src/${PROJECT_NAME}/RTIMU.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -137,7 +137,7 @@ ADD_SUBDIRECTORY(${CMAKE_CURRENT_SOURCE_DIR}/src/RTIMULib2/RTIMULib RTIMULib)
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/BerryIMU_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/RTIMU_node.cpp)
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 ## Rename C++ executable without prefix
@@ -156,7 +156,7 @@ add_executable(${PROJECT_NAME} src/main.cpp)
 # )
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES}) 
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} RTIMULib)
-# add_dependencies(${PROJECT_NAME} BerryIMU_cpp)
+# add_dependencies(${PROJECT_NAME} RTIMU_cpp)
 
 #############
 ## Install ##
@@ -205,7 +205,7 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME} RTIMULib)
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_BerryIMU.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_RTIMU.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
